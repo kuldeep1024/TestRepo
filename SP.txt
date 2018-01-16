@@ -1,0 +1,46 @@
+
+
+select top 10  * from [TD]..[edw_dev_rtl_intf].[hhd_household_account_hcl]
+
+select count(*) from [jw_sit].[household]
+select count(*) from [jw_sit].[household2]
+truncate table [jw_sit].[household]
+
+
+drop procedure fetchEDWData
+
+EXEC fetchEDWData
+
+
+create procedure fetchEDWData
+as
+BEGIN
+
+select top 10 * into [jw_sit].[household2]
+from [TD]..[edw_dev_rtl_intf].[hhd_household_account_hcl]
+
+END
+
+
+
+create procedure fetchEDWData
+as
+BEGIN
+
+BEGIN TRANSACTION
+BEGIN TRY
+	truncate table [jw_sit].[household2]
+	PRINT 'After truncate statement';
+	INSERT INTO [jw_sit].[household2]
+	select top 5 * from [TD]..[edw_dev_rtl_intf].[hhd_household_account_hcl]
+	PRINT 'After insert into statement';
+	RAISERROR(59998, 16, 1) 
+	PRINT 'After RAISERROR statement';
+	COMMIT TRANSACTION; 
+END TRY
+BEGIN CATCH
+	PRINT 'in catch';
+    ROLLBACK TRANSACTION
+END CATCH
+END
+
