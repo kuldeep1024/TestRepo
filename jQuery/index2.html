@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery - Portlets</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script>
+$(document).ready(function(){
+	
+
+
+    $( ".portlet" ).sortable({
+      connectWith: ".portlet",
+      handle: ".portlet-header",
+      cancel: ".portlet-toggle",
+      placeholder: "portlet-placeholder ui-corner-all"
+    });
+	//debugger;
+	$( ".portlet" ).resizable()
+      .addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
+      .find( ".portlet-header" )
+        .addClass( "ui-widget-header ui-corner-all" )
+        .prepend( "<span class='ui-icon ui-icon-minusthick portlet-toggle'></span>");
+ 
+    $( ".portlet-toggle" ).on( "click", function() {
+      var icon = $( this );
+      icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
+      icon.closest( ".portlet" ).find( ".portlet-content" ).toggle();
+    });
+  
+  $( ".draggable" ).draggable({
+    revert: "invalid",
+    stack: ".draggable",
+    helper: 'clone'
+});
+  $( ".frame" ).droppable({
+	accept: ".draggable",
+      drop: function( event, ui ) {
+        $( this )
+		//$( ".draggable" ).html("");
+		
+		var droppable = $(this);
+        var draggable = ui.draggable;
+        // Move draggable into droppable
+        draggable.clone().appendTo(droppable);
+		
+		//ui.draggable[0].innerHTML="";
+		
+		var url =  ui.draggable[0].href;
+        $("."+event.target.classList[1]+"").attr("src", url );
+      }
+    });
+  
+  $("#btnSave").click(function(){
+  debugger;
+    alert("Frame 1 : "+ $('.f1').attr('src'));
+    alert("Frame 2 : "+ $('.f2').attr('src'));
+    alert("Frame 3 : "+ $('.f3').attr('src'));
+    alert("Frame 4 : "+ $('.f4').attr('src'));
+    alert("Frame 5 : "+ $('.f5').attr('src'));
+});
+  
+  } );
+  </script>
+  <style>
+	.portlet.tab1, .portlet.tab2{
+		width:300px;
+	}
+	.portlet.tab3{
+		width:680px;
+	}
+	.portlet.tab4{
+		width:410px;
+	}
+	.portlet.tab5{
+		width:210px;
+	}
+	.portlet {
+		display: inline-block;
+
+	}
+  </style>
+</head>
+<body>
+ <div>
+	<a onclick="return false" href="../test_pages/page1.html" class="draggable">Load Anchor Tag</a><br>
+    <a onclick="return false" href="../test_pages/page2.html" class="draggable">Load Anchor Tag-2</a><br>
+    <a onclick="return false" href="../test_pages/page3.html" class="draggable">Load Anchor Tag-3</a>	
+</div>
+ <div>
+	<button type="button" id="btnSave">Save</button>
+ </div>
+ <div id="container">
+
+ 
+  <div class="portlet tab1">
+    <div class="portlet-header">Feeds</div>
+    <div class="portlet-content">
+		<iframe class="frame f1" src="" style="height: 100%; width: 100%; "></iframe>
+	</div>
+  </div>
+ 
+  <div class="portlet tab2">
+    <div class="portlet-header">News</div>
+    <div class="portlet-content">
+		<iframe class="frame f2" src="" width="100%" height="100%"></iframe>
+	</div>
+  </div>
+
+ 
+  <div class="portlet tab3">
+    <div class="portlet-header">Shopping</div>
+    <div class="portlet-content">
+		<iframe class="frame f3" src="" width="100%" height="100%"></iframe>
+	</div>
+  </div>
+
+ 
+  <div class="portlet tab4">
+    <div class="portlet-header">Links</div>
+    <div class="portlet-content">
+		<iframe class="frame f4" src="" width="100%" height="100%" ></iframe>
+	</div>
+  </div>
+ 
+  <div class="portlet tab5">
+    <div class="portlet-header">Images</div>
+    <div class="portlet-content">
+		<iframe class="frame f5" src="" width="100%" height="100%" ></iframe>
+	</div>
+  </div>
+ 
+ 
+ </div>
+ 
+</body>
+</html>

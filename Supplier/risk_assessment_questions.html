@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title</title>
+
+<style>
+body{
+	width:1000px;
+	margin:auto;
+	background-color:#c0cff9;
+}
+#container{
+	background-color:#fcf6bd;
+	height:700px;
+	overflow: scroll;
+	margin-top:20px;
+	width: 75%;
+	float:right;
+	padding:20px;
+}
+#links{
+	margin-top:20px;
+	width:20%;
+	position: absolute;
+}
+.padd_left{
+	display: inline-block;
+    padding-left: 40px;
+}
+.arrow{
+	width;20px;
+	height:20px;
+}
+</style>
+<script>
+function onLoadCheck(){
+	document.getElementById("Offshoring_2").hidden=true;
+	document.getElementById("Offshoring_3").hidden=true;
+	document.getElementById("Offshoring_4").hidden=true;
+}
+
+function check1(){debugger;
+	if(document.getElementById("isOutsourcing_yes").checked){
+		document.getElementById("s1").hidden=false;
+	}
+	if(document.getElementById("isOutsourcing_no").checked){
+		document.getElementById("s1").hidden=true;
+	}
+	if(document.getElementById("isOutsourcing_ch_yes").checked){
+		document.getElementById("s2").hidden=false;
+	}
+	if(document.getElementById("isOutsourcing_ch_no").checked){
+		document.getElementById("s2").hidden=true;
+	}
+	if(document.getElementById("isOffshoring_yes").checked){
+		document.getElementById("Offshoring_0").hidden=false;
+		document.getElementById("Offshoring_2").hidden=true;
+		document.getElementById("Offshoring_3").hidden=true;
+		document.getElementById("Offshoring_4").hidden=true;
+	}
+	if(document.getElementById("isOffshoring_no").checked){
+		document.getElementById("Offshoring_0").hidden=true;
+	}
+	
+	if(document.getElementById("isOffshoring_yes_ch1").checked){
+		document.getElementById("Offshoring_2").hidden=false;
+	}
+	if(document.getElementById("isOffshoring_no_ch1").checked){
+		document.getElementById("Offshoring_2").hidden=false;
+	}
+	if(document.getElementById("isOffshoring_yes_ch2").checked){
+		document.getElementById("Offshoring_3").hidden=false;
+	}
+	if(document.getElementById("isOffshoring_no_ch2").checked){
+		document.getElementById("Offshoring_4").hidden=false;
+	}
+	if(document.getElementById("Business_creit_yes").checked){
+		document.getElementById("Business_creit_0").hidden=false;
+	}
+	if(document.getElementById("Business_creit_no").checked){
+		document.getElementById("Business_creit_0").hidden=true;
+	}
+}
+</script>
+</head>
+
+<body onload="onLoadCheck()">
+<div id="links">
+	<a href="supplier_overview.html">Overview</a><br>
+	<a href="risk_assessment_questions.html">Risk Assessment Questions</a><br>
+	<a href="risk_assessment.html">Risk Assessments</a><br>
+	<a href="dashboard.html">Dashboard</a><br>
+</div>
+<div id="container">
+	<h3>Risk assessment questions</h3>
+	<h4>1. Outsourcing</h4>
+	<p>For the supplier service, is this an activity that would normally be performed internally in the Group? E.g. Software as a Service (SaaS), see more examples in help.</p>
+		<input type="radio" name="isOutsourcing" id="isOutsourcing_yes" onchange="check1()" checked> Yes
+		<input type="radio" name="isOutsourcing" id="isOutsourcing_no" onchange="check1()"> No<br>
+		<span id="s1">
+		<span  class="padd_left">
+		<p><img src="arrow3.png" class="arrow"/>Will this arrangement be provided on an ongoing basis?</p>
+			<input type="radio" name="isOutsourcing_ch" id="isOutsourcing_ch_yes" onchange="check1()" checked> Yes
+			<input type="radio" name="isOutsourcing_ch"  id="isOutsourcing_ch_no" onchange="check1()"> No
+		<span id="s2">
+			<p><img src="arrow3.png"  class="arrow"/>What kind of outsource is this? (please select all that apply)</p>
+				<input type="checkbox" name="ch1" value="">SaaS - Software as a Service<br>
+				<input type="checkbox" name="ch1" value="">IAAS - Infrastructure as a Service<br>
+				<input type="checkbox" name="ch1" value="">PAAS - Platform as a Service<br>
+				<input type="checkbox" name="ch1" value="">BPO - Business Process Outsourcing<br>
+				<input type="checkbox" name="ch1" value="">Managed Service<br>
+				<input type="checkbox" name="ch1" value="">Application Support<br>
+				<input type="checkbox" name="ch1" value="">Other
+			</span>
+			</span>
+		</span>
+	
+	<h4>2. Offshoring</h4>
+	<p>Are there any aspects of the Supplier's service or manufacturing of goods which are performed offshore outside the source jurisdiction or involving offshoring CBA Group jobs?</p>
+		<input type="radio" name="Offshoring" id="isOffshoring_yes" onchange="check1()" checked> Yes
+		<input type="radio" name="Offshoring" id="isOffshoring_no" onchange="check1()"> No<br>
+	<span class="padd_left">
+	<span id="Offshoring_0">
+	<span id="Offshoring_1">
+		<p><img src="arrow3.png" class="arrow"/>Does the arrangement involve offshoring existing CBA Group roles?</p>
+		<input type="radio" name="Offshoring_ch1" id="isOffshoring_yes_ch1" onchange="check1()"> Yes
+		<input type="radio" name="Offshoring_ch1" id="isOffshoring_no_ch1" onchange="check1()"> No<br>
+	</span>
+	<span id="Offshoring_2">
+		<p><img src="arrow3.png" class="arrow"/>Does the arrangement involve offshored data hosting of CBA Group data, offshore access to CBA Group data or provision of contracted service delivery from an offshore location outside Australia or the source jurisdiction?</p>
+		<input type="radio" name="Offshoring_ch2" id="isOffshoring_yes_ch2" onchange="check1()"> Yes
+		<input type="radio" name="Offshoring_ch2" id="isOffshoring_no_ch2" onchange="check1()"> No<br>
+	</span>
+	<span id="Offshoring_3">
+		<p><img src="arrow3.png" class="arrow"/>What type of offshore arrangement is this? (please select all that apply)</p>
+		<input type="checkbox" name="ch2" value="">Offshore Data Hosting<br>
+		<input type="checkbox" name="ch2" value="">Offshore Access to Group Systems<br>
+		<input type="checkbox" name="ch2" value="">Offshore Service Delivery<br>	
+	</span>
+	<span id="Offshoring_4">
+		<p><img src="arrow3.png" class="arrow"/>Does the arrangement involve the manufacturing of goods?</p>
+		<input type="radio" name="Offshoring_ch3" id="isOffshoring_yes_ch3" onchange="check1()"> Yes
+		<input type="radio" name="Offshoring_ch3" id="isOffshoring_no_ch3" onchange="check1()"> No<br>
+	</span>
+	</span>
+	</span>
+	<h4>3. Physical Access</h4>
+	<p>Would the supplier be physically accessing CBA premises unescorted or have access to IT data centres, trading floors, executive floors, branch back of house or other restricted areas?</p>
+		<input type="radio" name="Physical_acc" id="Physical_acc_yes" onchange="check1()" checked> Yes
+		<input type="radio" name="Physical_acc" id="Physical_acc_no" onchange="check1()"> No<br>
+		
+	<h4>4. Business Criticality / Impact</h4>
+	<p>Would failure or poor performance of the services/goods provided by the supplier result in any potential impact rated ‘Moderate’ or higher. In your assessment, refer to the Groups 5 x 5 Risk Impact Matrix and assess the impacts on: Customer Service & Operations, Reputation / Brand, Legal / Regulatory / Compliance, People & Customers?</p>
+		<input type="radio" name="Business_creit" id="Business_creit_yes" onchange="check1()" checked> Yes
+		<input type="radio" name="Business_creit" id="Business_creit_no" onchange="check1()"> No<br>
+		<span class="padd_left">
+		<span id="Business_creit_0">
+		<p><img src="arrow3.png" class="arrow"/>Is rating of risk rated as High or Very High (based on Impact & Likelihood matrix)?</p>
+		<input type="radio" name="Business_creit_ch1" id="Business_creit_yes_ch1" onchange="check1()"> Yes
+		<input type="radio" name="Business_creit_ch1" id="Business_creit_no_ch1" onchange="check1()"> No<br>
+		</span>
+		</span>
+	<h4>5. Technology Services</h4>
+	<p>Is this arrangement, a non-technology related service, or a technology service confined to the purchase of a low risk, IT asset purchase (e.g. keyboard, cable, commodity software, with a value < $1000, ordered via RequestIT or Bankwest VMO)?</p>
+		<input type="radio" name="Technology_serv" id="Technology_serv_yes" onchange="check1()" checked> Yes
+		<input type="radio" name="Technology_serv" id="Technology_serv_no" onchange="check1()"> No<br>
+		<span class="padd_left">
+		<p><img src="arrow3.png" class="arrow"/>Is the service for only one off technology professional services?</p>
+		<input type="radio" name="Technology_serv_ch1" id="Technology_serv_yes_ch1" onchange="check1()" checked> Yes
+		<input type="radio" name="Technology_serv_ch1" id="Technology_serv_no_ch1" onchange="check1()"> No<br>
+		<p><img src="arrow3.png" class="arrow"/>Is the service limited to only a software licence installed in-house with no external connectivity?</P>
+		<input type="radio" name="Technology_serv_ch2" id="Technology_serv_yes_ch2" onchange="check1()" checked> Yes
+		<input type="radio" name="Technology_serv_ch2" id="Technology_serv_no_ch2" onchange="check1()"> No<br>
+		</span>
+	<h4>6. Sensitive Data</h4>
+	<p>Will the service involve the supplier accessing / managing and/or storing Group or customer data?</p>
+		<input type="radio" name="Sensitive_data" id="Sensitive_data_yes" onchange="check1()" checked> Yes
+		<input type="radio" name="Sensitive_data" id="Sensitive_data_no" onchange="check1()"> No<br>
+		<span class="padd_left">
+		<p><img src="arrow3.png" class="arrow"/>Does the data contain market sensitive information, information that if disclosed could cause a Group-wide information security incident or master encryption keys? (Highly Protected)</p>
+		<input type="radio" name="Sensitive_data_ch1" id="Sensitive_data_yes_ch1" onchange="check1()" checked> Yes
+		<input type="radio" name="Sensitive_data_ch1" id="Sensitive_data_no_ch1" onchange="check1()"> No<br>
+		
+		<p><img src="arrow3.png" class="arrow"/>Is the information about an individual, either Personal Information (PI) of a customer, personal employee information (excluding information available in the company Directory), or any sensitive personal data or PCI-impacting data? (Customer and Personal)</p>
+		<input type="radio" name="Sensitive_data_ch2" id="Sensitive_data_yes_ch2" onchange="check1()" checked> Yes
+		<input type="radio" name="Sensitive_data_ch2" id="Sensitive_data_no_ch2" onchange="check1()"> No<br>
+		<p><img src="arrow3.png" class="arrow"/>Is the information proprietary to the Group and intended for access by only an approved subset of staff or business partners? (Confidential)</p>
+		<input type="radio" name="Sensitive_data_ch3" id="Sensitive_data_yes_ch3" onchange="check1()" checked> Yes
+		<input type="radio" name="Sensitive_data_ch3" id="Sensitive_data_no_ch3" onchange="check1()"> No<br>
+		<p><img src="arrow3.png" class="arrow"/>Is the information proprietary to the Group and is suitable for use of access by all staff and business partners? (Group Use Only)</p>
+		<input type="radio" name="Sensitive_data_ch4" id="Sensitive_data_yes_ch4" onchange="check1()" checked> Yes
+		<input type="radio" name="Sensitive_data_ch4" id="Sensitive_data_no_ch4" onchange="check1()"> No<br>
+		<p><img src="arrow3.png" class="arrow"/>Is the information from a public source (excluding personal information) or intended and approved for unrestricted publication? (Public)</p>
+		<input type="radio" name="Sensitive_data_ch5" id="Sensitive_data_yes_ch5" onchange="check1()" checked> Yes
+		<input type="radio" name="Sensitive_data_ch5" id="Sensitive_data_no_ch5" onchange="check1()"> No<br>
+		</span>
+	<h4>7. Spend</h4>
+	<p>Is the expected spend with the supplier over the next 12 months greater than $250k (AUD$)?</p>
+		<input type="radio" name="Spend" id="Spend_yes" onchange="check1()" checked> Yes
+		<input type="radio" name="Spend" id="Spend_no" onchange="check1()"> No<br>
+		<span class="padd_left">
+		<img src="arrow3.png" class="arrow"/>What Centre of Excellence (CoE) have you engaged?
+		<select>
+			<option></option>
+			<option>Group Procurement</option>
+			<option>Group Operations</option>
+			<option>Group Property</option>
+			<option>Enterprise Technology Procurement & Partnerships (ETPP)</option>
+			<option>Bankwest Vendor Management Office (VMO)</option>
+			<option>I have not engaged a CoE</option>
+		</select><br>
+		<img src="arrow3.png" class="arrow"/>Email address for primary person in the CoE you have engaged:
+		<input type="text" />
+		
+		</span>
+		
+		<br>
+		<br>
+		<div style="text-align:center;">
+		<button>Calculate Tiering</button>
+		</div>
+</div>
+</body>
+
+</html>

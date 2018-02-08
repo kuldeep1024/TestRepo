@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title</title>
+
+<style>
+body{
+	width:1000px;
+	margin:auto;
+	background-color:#c0cff9;
+}
+#container{
+	background-color:#fcf6bd;
+	margin-top:20px;
+	width: 80%;
+	float:right;
+}
+#links{
+	margin-top:20px;
+	width:20%;
+	position: absolute;
+}
+table {
+	border: 1px solid black;
+}
+input[type="text"],textarea,select {
+    width: 95%;
+	margin: auto;
+}
+td {
+	width: 50%;
+	padding:10px;
+	vertical-align: bottom;
+}
+.red{
+	border: 2px solid red;
+}
+
+</style>
+</head>
+
+<body>
+<div id="links">
+	<a href="supplier_overview.html">Overview</a><br>
+	<a href="risk_assessment_questions.html">Risk Assessment Questions</a><br>
+	<a href="risk_assessment.html">Risk Assessments</a><br>
+	<a href="dashboard.html">Dashboard</a><br>
+</div>
+<div id="container">
+	<table>
+		<tr>
+			<td>Supplier Name<br> (for Australian companies you must
+				enter the 'Registered' name of the supplier as specified on
+				http://www.abr.business.gov.au/ )<br> 
+				<input class="red" type="text" name="">
+			</td>
+			<td>Supplier ABN or VAT<br> (for Australian companies you
+				must enter the valid ABN number http://www.abr.business.gov.au/ )<br>
+				<input class="red" type="text" name="">
+			</td>
+		</tr>
+		<tr>
+			<td>Peoplesoft Supplier ID number (if already created)<br>
+				<input type="text" name="" maxlength="10">
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Engagement Type (This form is not required for an existing
+				supplier when you just need to raise a Purchase Order, Work Order,
+				or Statement of Work which is covered under an existing Master
+				Services or Standard Contractual Agreement)<br> 
+				<select class="red">
+					<option></option>
+					<option>New / Reactivate supplier</option>
+					<option>New contract for existing supplier</option>
+					<option>Contract variation</option>
+					<option>Contract extension</option>
+					<option>Materiality Assessment (MA) refresh</option>
+					<option>Financial Due Diligence (FDD) refresh</option>
+					<option>MA & FDD combined refresh</option>
+					<option>Supplier Security Assessment refresh</option>
+					<option>Re-Tiering</option>
+				</select>
+
+			</td>
+			<td>ContractID Number (this is required for all tier 0-3
+				suppliers if an engagement type of variation, extension or refresh
+				is selected)<br> 
+				<input type="text" value="CW" readonly style="width:25px" />
+				<input type="text" style="width:80%"  maxlength="7" name="">
+			</td>
+		</tr>
+		<tr>
+			<td>Email of Group Business Owner for the supplier (CBA level 3
+				& above, Bankwest level 5 & above) (this information MUST match the
+				details in PeopleSoft Financials for all existing active suppliers)<br>
+				<input class="red" type="text" name="">
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Email of person completing assessment<br> 
+			<input type="text" class="red" name=""></td>
+			<td>Supplier Relationship Role<br> 
+				<select class="red">
+					<option></option>
+					<option>Business Owner</option>
+					<option>Contract Manager</option>
+					<option>Supplier Relationship Manager</option>
+					<option>Service Owner</option>
+					<option>Business User</option>
+					<option>Line 1 Risk</option>
+					<option>Line 2 Risk</option>
+					<option>Category Manager</option>
+					<option>Business Assistant</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Email of Business Unit Line 1 Risk Representative (*not
+				mandatory)<br> 
+				<input type="text" name="">
+			</td>
+			<td>Email of Business Unit Line 2 Risk Representative (*not
+				mandatory)<br> 
+				<input type="text" name="">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">Supplier Category<br> 
+				<select class="red">
+					<option></option>
+					<option>Business Services (e.g. insurance services, market
+						data, travel, entertainment & conference)</option>
+					<option>Commission Payments (e.g. Broker, Financial
+						planning network)</option>
+					<option>Emergency Services (Group Property Only)</option>
+					<option>Intercompany & Non-Australian based entities of
+						the group</option>
+					<option>Information Technology (IT) (e.g. computer
+						services, hardware, software, technology related)</option>
+					<option>Marketing, Media and Communications (e.g.
+						advertising, media buy & marketing services, design and marketing,
+						market research, printing)</option>
+					<option>Professional Services (e.g. consultants,
+						employment services, legal services, recruitment, training &
+						development)</option>
+					<option>Property - Utilities and Leasing</option>
+					<option>Property - (e.g. cleaning, construction,
+						electrical, facilities management & operations, real estate) -
+						Excl. utilities & leasing</option>
+					<option>Regulatory (e.g. Government, Australian Tax Office
+						(ATO))</option>
+					<option>Sponsorships, Charities, Subscriptions,
+						Professional Associations, Loyalty Programs</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">Description of the arrangement with this
+				supplier (Please include information on the services or products
+				being procured.)<br> 
+				<textarea rows="4" class="red" cols="50"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="text-align:center;">
+				<input type="submit">
+			</td>
+		</td>
+	</table>
+</div>
+</body>
+
+</html>
